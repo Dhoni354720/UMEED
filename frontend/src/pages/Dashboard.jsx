@@ -453,9 +453,11 @@ function PriorityCard({ icon, title, count, isCritical }) {
   );
 }
 
-function ActionCard({ icon, label }) {
+function ActionCard({ icon, label, onClick }) {
   return (
-    <button className="flex flex-col items-center justify-center gap-2 bg-[#ebf4fc] p-4 rounded-2xl border border-transparent hover:bg-[#3087DF] hover:shadow-md transition-all group active:scale-95">
+    <button 
+    onClick={onClick}
+    className="flex flex-col items-center justify-center gap-2 bg-[#ebf4fc] p-4 rounded-2xl border border-transparent hover:bg-[#3087DF] hover:shadow-md transition-all group active:scale-95">
       <div className="text-[#3087DF] group-hover:text-white transition-colors">
         {React.cloneElement(icon, { className: "w-6 h-6 stroke-[2.5px]" })}
       </div>
