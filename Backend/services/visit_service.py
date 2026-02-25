@@ -1,7 +1,7 @@
 # Backend/services/visit_service.py
 
 import uuid
-from app.config.supabase_client import supabase
+from Backend.app.config.supabase_client import supabase
 from Backend.services.triage_service import triage_predict
 
 

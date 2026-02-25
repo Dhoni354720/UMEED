@@ -1,5 +1,5 @@
 import uuid
-from app.config.supabase_client import supabase
+from Backend.app.config.supabase_client import supabase
 from Backend.services.visit_service import save_visit
 
 
