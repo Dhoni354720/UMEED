@@ -31,8 +31,10 @@ import {
   ChevronUp,
   Plus
 } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('dashboard');
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [syncStatus, setSyncStatus] = useState('synced'); // synced, syncing, offline
@@ -269,14 +271,28 @@ export default function Dashboard() {
       {/* STICKY BOTTOM NAVIGATION */}
       <nav className="bg-white border-t border-slate-200 flex justify-around items-center px-2 py-3 pb-safe absolute bottom-0 w-full sm:max-w-md z-20 shadow-[0_-4px_12px_rgba(0,0,0,0.03)]">
         <NavItem icon={<Home />} label="Home" isActive={activeTab === 'dashboard'} onClick={() => setActiveTab('dashboard')} />
-        <NavItem icon={<Users />} label="Families" isActive={activeTab === 'families'} onClick={() => setActiveTab('families')} />
-        <div className="-mt-6">
-          <button className="bg-[#3087DF] text-white p-3 rounded-full shadow-lg shadow-[#3087DF]/40 active:scale-95 transition-transform border-4 border-slate-50">
-            <Plus className="w-6 h-6" />
-          </button>
-        </div>
-        <NavItem icon={<FileText />} label="Reports" isActive={activeTab === 'reports'} onClick={() => setActiveTab('reports')} />
-        <NavItem icon={<User />} label="Profile" isActive={activeTab === 'profile'} onClick={() => setActiveTab('profile')} />
+<NavItem 
+  icon={<Users />} 
+  label="Families" 
+  isActive={activeTab === 'families'} 
+  onClick={() => navigate("/families")} 
+/>
+
+<div className="-mt-6">
+  <button className="bg-[#3087DF] text-white p-3 rounded-full shadow-lg shadow-[#3087DF]/40 active:scale-95 transition-transform border-4 border-slate-50">
+    <Plus className="w-6 h-6" />
+  </button>
+</div>
+
+<NavItem icon={<FileText />} label="Reports" isActive={activeTab === 'reports'} onClick={() => setActiveTab('reports')} />
+
+<NavItem 
+  icon={<User />} 
+  label="Profile" 
+  isActive={activeTab === 'profile'} 
+  onClick={() => navigate("/profile")} 
+/>
+      
       </nav>
 
       {/* --- GLOBAL SLIDING DRAWER MENU --- */}
